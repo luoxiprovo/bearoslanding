@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BearMail — Mail and calendar for your team and your agents</title>
+    <meta name="description" content="BearMail is self-hosted email and calendar on your company domain. People use the web app. Cursor, Claude, and Hermes use the same mailboxes.">
+    <meta property="og:title" content="BearMail">
+    <meta property="og:description" content="Self-hosted email and calendar for your team and your AI agents.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <a class="skip" href="#content">Skip to content</a>
+    <header class="nav">
+      <a class="wordmark" href="/">BearMail</a>
+      <nav class="nav-links" aria-label="Page">
+        <a href="#product">Product</a>
+        <a href="#agents">Agents</a>
+        <a href="#install">Install</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="nav-github" href="https://github.com/luoxiprovo/bearmail" rel="noopener noreferrer">GitHub</a>
+    </header>
+
+    <main id="content">
+      <section class="hero">
+        <p class="eyebrow">Self-hosted email and calendar</p>
+        <h1>A real mailbox for people and agents.</h1>
+        <p class="lede">BearMail puts email and calendar on your company domain. Your team uses the web app. Cursor, Claude, and Hermes work in the same mailboxes. Everyone else receives ordinary mail.</p>
+        <div class="actions">
+          <a class="button" href="#contact">Talk to us</a>
+          <a class="text-link" href="https://github.com/luoxiprovo/bearmail" rel="noopener noreferrer">View on GitHub</a>
+        </div>
+        <p class="meta-line">Linux x86-64 · your domain · version 0.1.0</p>
+      </section>
+
+      <section id="product" class="band">
+        <div class="wrap">
+          <h2>What you have when the installer finishes.</h2>
+          <p class="section-lede">One Linux server with systemd. An interactive setup. Mail for people, and a sidecar so agents can use it too.</p>
+          <div class="specs">
+            <article class="spec">
+              <p class="spec-index">01</p>
+              <h3>Mail on your domain</h3>
+              <p>SMTP, IMAP, JMAP, and an admin console on a hostname you choose, such as mail.example.com.</p>
+            </article>
+            <article class="spec">
+              <p class="spec-index">02</p>
+              <h3>Webmail and calendar</h3>
+              <p>The team signs in at a second hostname, such as webmail.example.com. Caddy serves HTTPS.</p>
+            </article>
+            <article class="spec">
+              <p class="spec-index">03</p>
+              <h3>Agents on those mailboxes</h3>
+              <p>An MCP sidecar talks JMAP to the same server. Cursor, Claude, and Hermes can use a mailbox you create for them.</p>
+            </article>
+            <article class="spec">
+              <p class="spec-index">04</p>
+              <h3>Mail the world already accepts</h3>
+              <p>When the host blocks port 25, outbound mail leaves through an SMTP relay. Calendar invites travel as normal messages.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="agents">
+        <div class="wrap">
+          <h2>People and agents, one mail system.</h2>
+          <p class="section-lede">A person and an agent each get an address on the server you run. Outside recipients stay on ordinary email.</p>
+          <div class="plate">
+            <p class="plate-label">Example addresses</p>
+            <div class="plate-row">
+              <span class="plate-address">ada@company.com</span>
+              <span class="plate-role">Person</span>
+            </div>
+            <div class="plate-row">
+              <span class="plate-address">scheduler@company.com</span>
+              <span class="plate-role">Agent</span>
+            </div>
+            <p class="plate-foot">Same server. The agent starts in draft-only mode, with its own API key.</p>
+          </div>
+          <div class="trio">
+            <article>
+              <h3>People</h3>
+              <p>They read, write, and schedule in the web app. Sign-in is the mailbox you created in admin.</p>
+            </article>
+            <article>
+              <h3>Agents</h3>
+              <p>Each agent gets a dedicated address, separate from a founder inbox. MCP in this release is Draft v0.1. Sending stays draft-only until you allow it.</p>
+            </article>
+            <article>
+              <h3>Everyone else</h3>
+              <p>They receive normal messages and calendar invites in the mail client they already use.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="install" class="install">
+        <div class="wrap narrow">
+          <h2>A short path onto your own server.</h2>
+          <p class="install-lede">A Linux x86-64 machine with systemd, a public address, and a domain. If the provider blocks outbound port 25, have an SMTP relay ready. name.com and Hostinger can be updated by the installer. Any other registrar gets the zone records to publish by hand.</p>
+          <div class="command">
+            <button type="button" id="copy-install">Copy</button>
+            <pre><code id="install-command">curl -fsSL https://raw.githubusercontent.com/<wbr>luoxiprovo/<wbr>bearmail/<wbr>main/<wbr>release_install.sh | sudo bash</code></pre>
+          </div>
+          <p class="install-note">Add <code>--dry-run</code> to preview the download before anything changes. The <a href="https://github.com/luoxiprovo/bearmail/blob/main/docs/QUICKSTART.md" rel="noopener noreferrer">quick start</a> covers the agent sidecar after mail is up.</p>
+        </div>
+      </section>
+
+      <section id="limits" class="band limits">
+        <div class="wrap narrow">
+          <h2>This release, plainly.</h2>
+          <p>Version 0.1.0 is software you host yourself. Managed hosting, parity with large office suites, Docker, Kubernetes, ARM builds, an SLA, and compliance certifications are outside this release. Agents begin in draft-only mode.</p>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="wrap narrow">
+          <h2>Talk to us.</h2>
+          <p class="section-lede">Tell us about your company and how you want people and agents to share a mailbox.</p>
+          <div id="form-success" class="success" hidden>
+            <h3 tabindex="-1">Message sent.</h3>
+            <p>Thank you. We will reply to the email address you entered.</p>
+          </div>
+          <form id="inquiry" novalidate>
+            <div class="hp" aria-hidden="true">
+              <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+            </div>
+            <div class="fields pair">
+              <label>
+                <span>Company name</span>
+                <input name="company" type="text" autocomplete="organization" maxlength="120" required>
+              </label>
+              <label>
+                <span>Contact name</span>
+                <input name="contact" type="text" autocomplete="name" maxlength="120" required>
+              </label>
+            </div>
+            <div class="fields pair">
+              <label>
+                <span>Email</span>
+                <input name="email" type="email" autocomplete="email" maxlength="320" required>
+              </label>
+              <label>
+                <span>Phone</span>
+                <input name="phone" type="tel" autocomplete="tel" maxlength="40" required>
+              </label>
+            </div>
+            <label class="message-field">
+              <span>Message</span>
+              <textarea name="message" rows="6" maxlength="5000" required></textarea>
+            </label>
+            <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+            <button class="button" id="send" type="submit">Send message</button>
+            <p class="form-note">This note is emailed to the address configured for the site. It is not stored in a database here.</p>
+            <noscript>
+              <p class="form-status">JavaScript is required to send this form.</p>
+            </noscript>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>BearMail is a packaging and MCP layer on the Stalwart mail engine. It is not a Stalwart Labs product. The engine is dual-licensed under <a href="https://www.gnu.org/licenses/agpl-3.0.html" rel="noopener noreferrer">AGPL-3.0</a> and the <a href="https://github.com/luoxiprovo/bearmail/blob/main/LICENSES/LicenseRef-SEL.txt" rel="noopener noreferrer">Stalwart Enterprise License</a>.</p>
+      <p><a href="https://github.com/luoxiprovo/bearmail" rel="noopener noreferrer">github.com/luoxiprovo/bearmail</a></p>
+    </footer>
+    <script src="/main.js"></script>
+  </body>
+</html>
